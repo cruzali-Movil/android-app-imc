@@ -1,7 +1,10 @@
 package dev.alicruz.curso_android_1.imccalculadora
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
@@ -16,6 +19,7 @@ class ImcActivity : AppCompatActivity() {
     private var isFemaleSelected:Boolean = false
     private var currentWeight:Int = 60;
     private var currentAge:Int = 30;
+    private var currentHeight:Int = 120
 
     private lateinit var viewMale: CardView
     private lateinit var viewFemale: CardView
@@ -29,7 +33,12 @@ class ImcActivity : AppCompatActivity() {
     private lateinit var btnEdadMas: FloatingActionButton
     private lateinit var textVAge: TextView
 
-    private lateinit var btnCalculate:Button
+    private lateinit var btnCalculate: Button
+
+    // Pasar el valor a otro activity
+    companion object {
+        const val IMC_KEY = "IMC_RESULT"
+    }
 
 
 
@@ -57,8 +66,8 @@ class ImcActivity : AppCompatActivity() {
 
         rsHeight.addOnChangeListener {_, value, _ ->
             val df = DecimalFormat("#.##")
-            val result = df.format(value)
-            tvHeight.text = "$result cm"
+            currentHeight = df.format(value).toInt()
+            tvHeight.text = "$currentHeight"
         }
 
         btnPesoMas.setOnClickListener {
@@ -77,9 +86,27 @@ class ImcActivity : AppCompatActivity() {
 
         btnEdadMas.setOnClickListener {
             currentAge += 1
+            setAge()
+        }
+
+        btnCalculate.setOnClickListener {
+            val res = calculateIMC()
+            navigateToResult(res)
         }
 
 
+    }
+
+    private fun navigateToResult(res: Double) {
+        val intent = Intent(this, ResultadoIMCActivity::class.java)
+        intent.putExtra(IMC_KEY, res)
+        startActivity(intent)
+    }
+
+    private fun calculateIMC():Double {
+        val df = DecimalFormat("#.##")
+        val imc = currentWeight / (currentHeight.toDouble() / 100 * currentHeight.toDouble() / 100)
+        return df.format(imc).toDouble()
     }
 
     private fun setWeight() {
@@ -87,7 +114,7 @@ class ImcActivity : AppCompatActivity() {
     }
 
     private fun setAge() {
-        textVAge.text = currentWeight.toString()
+        textVAge.text = currentAge.toString()
     }
 
     private fun changeGender()

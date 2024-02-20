@@ -12,28 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Curso_android_1"
         tools:targetApi="31">
-
+        <activity
+            android:name=".imccalculadora.ResultadoIMCActivity"
+            android:exported="false" />
         <activity
             android:name=".imccalculadora.ImcActivity"
-            android:exported="false" >
-
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
         </activity>
-
-
         <activity
             android:name=".MenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".firstapp.ResultActivity"
             android:exported="false">
@@ -41,8 +38,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".firstapp.FirstAppActivity"
             android:exported="true">
@@ -50,8 +45,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
     </application>
 
 </manifest>

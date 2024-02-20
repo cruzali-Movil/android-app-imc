@@ -6,4 +6,6 @@
     <string name="peso">Peso</string>
     <string name="age">Edad</string>
     <string name="calculate">Calcular</string>
+    <string name="resultado">Resultado</string>
+    <string name="recalcular">Recalcular</string>
 </resources>
