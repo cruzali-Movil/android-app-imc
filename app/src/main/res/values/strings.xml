@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Curso_android_1</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="male">Hombre</string>
+    <string name="height">Altura</string>
+    <string name="peso">Peso</string>
+    <string name="age">Edad</string>
+    <string name="calculate">Calcular</string>
+</resources>
