@@ -8,4 +8,14 @@
     <string name="calculate">Calcular</string>
     <string name="resultado">Resultado</string>
     <string name="recalcular">Recalcular</string>
+
+    <string name="error">Error</string>
+    <string name="title_pesobajo">Peso bajo</string>
+    <string name="descripcion_pesobajo">Estas por debajo del peso estandar</string>
+    <string name="title_pesonormal">Peso Normal</string>
+    <string name="descripcion_pesonormal">Estas en el peso normal</string>
+    <string name="title_sobrepeso">Sobrepeso</string>
+    <string name="descripcion_sobrepeso">Tienes sobrepeso</string>
+    <string name="title_obesidad">Obesidad</string>
+    <string name="descripcion_obesidad">Tienes obesidad</string>
 </resources>
